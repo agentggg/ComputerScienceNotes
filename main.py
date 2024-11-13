@@ -1,5 +1,6 @@
 import logging
 import os 
+import requests
 
 import streamlit as st  
 
@@ -20,7 +21,10 @@ class MainView():
         pass
 
     def main(self):
-    
+        with open('notes.txt', 'r') as file:
+            for each_line in file:
+                print(each_line)
+
         
 
 
