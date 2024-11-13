@@ -1,1 +1,4 @@
-testing
+Garbage Collection:
+When a value is saved in memory, it has a refernce count that is subscribed to it.
+Every time the object is refernced, the refernce count goes up by 1, when a reference is removed, it goes down by 1
+When the refernce count reaches to zero, it means that value is no longer being used anywhere within the program, it is removed from memory

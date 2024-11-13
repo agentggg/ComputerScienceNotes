@@ -1,6 +1,7 @@
 import logging
 import os 
 import requests
+import time
 
 import streamlit as st  
 
@@ -21,10 +22,13 @@ class MainView():
         pass
 
     def main(self):
-        with open('notes.txt', 'r') as file:
-            for each_line in file:
-                print(each_line)
-
+        st.cache_data.clear()  # Clear Streamlit's cache explicitly
+        timestamp = int(time.time())  # Current timestamp
+        file_url = f"https://raw.githubusercontent.com/agentggg/ComputerScienceNotes/main/notes.txt?{timestamp}"
+        response = requests.get(file_url)
+        file_content = response.text
+        for each_line in file_content.splitlines():
+            st.write(each_line)
         
 
 
